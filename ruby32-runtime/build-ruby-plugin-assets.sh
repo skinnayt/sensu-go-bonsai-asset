@@ -20,7 +20,7 @@ echo $GEM_NAME $GIT_OWNER_REPO $TAG $GIT_REF
 mkdir dist
 GIT_REPO="https://github.com/${GIT_OWNER_REPO}.git"
 
-platforms=( almalinux9 amzn2 debian12 gentoo2.17 )
+platforms=( almalinux9 alpine3.16 amzn2 debian12 gentoo2.17 )
 ruby_version=3.2.0
 runtime_version=0.3.0
 if [ -d dist ]; then
