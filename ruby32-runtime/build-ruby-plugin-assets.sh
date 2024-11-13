@@ -35,8 +35,8 @@ if [ -d dist ]; then
         EMULARCH="-v /usr/bin/qemu-aarch64:/usr/bin/qemu-aarch64"
       fi
 
-      echo docker build --platform linux/${ARCH} --build-arg MY_RUNTIME_IMAGE=registry.docker.skinnayt.ca:5000/sensu-ruby-runtime-${ruby_version}-${platform}-${ARCH}:${runtime_version} --build-arg BUILD_ARCH=${ARCH} --build-arg "ASSET_GEM=${GEM_NAME}" --build-arg "GIT_REPO=${GIT_REPO}"  --build-arg "GIT_REF=${GIT_REF}" -t ${ruby_plugin_image} --load -f ${WDIR}/ruby32-runtime/Dockerfile.${platform} .
-      docker buildx build --platform linux/${ARCH} --build-arg MY_RUNTIME_IMAGE=registry.docker.skinnayt.ca:5000/sensu-ruby-runtime-${ruby_version}-${platform}-${ARCH}:${runtime_version} --build-arg BUILD_ARCH=${ARCH} --build-arg "ASSET_GEM=${GEM_NAME}" --build-arg "GIT_REPO=${GIT_REPO}"  --build-arg "GIT_REF=${GIT_REF}" -t ${ruby_plugin_image} --load -f ${WDIR}/ruby32-runtime/Dockerfile.${platform} .
+      echo docker build --platform linux/${ARCH} --build-arg MY_RUNTIME_IMAGE=registry.docker.skinnayt.ca:5000/sensu-ruby-runtime-${ruby_version}-${platform}-${ARCH}:${runtime_version} --build-arg "ASSET_GEM=${GEM_NAME}" --build-arg "GIT_REPO=${GIT_REPO}"  --build-arg "GIT_REF=${GIT_REF}" -t ${ruby_plugin_image} --load -f ${WDIR}/ruby32-runtime/Dockerfile.${platform} .
+      docker buildx build --platform linux/${ARCH} --build-arg MY_RUNTIME_IMAGE=registry.docker.skinnayt.ca:5000/sensu-ruby-runtime-${ruby_version}-${platform}-${ARCH}:${runtime_version} --build-arg "ASSET_GEM=${GEM_NAME}" --build-arg "GIT_REPO=${GIT_REPO}"  --build-arg "GIT_REF=${GIT_REF}" -t ${ruby_plugin_image} --load -f ${WDIR}/ruby32-runtime/Dockerfile.${platform} .
       status=$?
       if test $status -ne 0; then
             echo "Docker build for platform: ${platform} failed with status: ${status}"
